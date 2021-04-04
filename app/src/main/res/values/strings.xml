@@ -13,4 +13,6 @@
     <string name="reversi_text">REVERSI</string>
     <string name="difficulty_text">SELECT DIFFICULTY</string>
     <string name="results_text">GAME RESULTS</string>
+    <string name="applysettings_text">APPLY SETTINGS</string>
+    <string name="newgame_text">START NEW GAME</string>
 </resources>

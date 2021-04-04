@@ -12,19 +12,27 @@
         tools:layout="@layout/title_fragment" >
         <action
             android:id="@+id/action_titleFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_out_up"
+            app:exitAnim="@anim/slide_in_down" />
         <action
             android:id="@+id/action_titleFragment_to_configFragment"
             app:destination="@id/configFragment" />
         <argument
             android:name="settings"
-            app:argType="boolean[]" />
+            app:argType="integer[]" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.jaguiler.reversi.ui.main.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_titleFragment"
+            app:destination="@id/titleFragment"
+            app:enterAnim="@anim/slide_out_down"
+            app:exitAnim="@anim/slide_in_up" />
+    </fragment>
     <fragment
         android:id="@+id/configFragment"
         android:name="com.jaguiler.reversi.ui.main.ConfigFragment"
@@ -33,6 +41,14 @@
         <action
             android:id="@+id/action_configFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_configFragment_to_titleFragment"
+            app:enterAnim="@anim/slide_out_up"
+            app:exitAnim="@anim/slide_in_down"
+            app:popUpTo="@id/titleFragment" />
+        <argument
+            android:name="settings"
+            app:argType="integer[]" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -56,7 +72,8 @@
         tools:layout="@layout/fragment_results" >
         <action
             android:id="@+id/action_resultsFragment_to_titleFragment"
-            app:destination="@id/titleFragment" />
+            app:destination="@id/titleFragment"
+            app:popUpTo="@id/titleFragment" />
         <argument
             android:name="winner"
             app:argType="boolean" />

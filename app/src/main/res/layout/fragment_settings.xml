@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="0.3" />
 
     <TextView
         android:id="@+id/settings_textView"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.60" />
 
     <TextView
         android:id="@+id/boardsize_textView"
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="@+id/settings_guideline" />
 
     <RadioGroup
-        android:id="@+id/boardsize_radiogroup"
+        android:id="@+id/boardsize_radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/boardsize_guideline"
@@ -60,7 +60,7 @@
 
         <RadioButton
             android:id="@+id/fourby_radioButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fourbyfourgrid_text"
             android:textAlignment="textStart"
@@ -69,11 +69,12 @@
 
         <RadioButton
             android:id="@+id/eightby_radioButon"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/eightbyeightboard_text"
             android:textColor="@color/black"
             android:textSize="18sp" />
+
     </RadioGroup>
 
     <TextView
@@ -89,29 +90,48 @@
         app:layout_constraintTop_toTopOf="@+id/boardsize_guideline" />
 
     <RadioGroup
-        android:id="@+id/playercolor_radiogroup"
+        android:id="@+id/playercolor_radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="match_parent"
+            android:id="@+id/black_radioButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/black_text"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="match_parent"
+            android:id="@+id/white_radioButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/white_text"
             android:textColor="@color/black"
             android:textSize="18sp" />
+
     </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <Button
+        android:id="@+id/applysettings_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/applysettings_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:layout_constraintVertical_bias="0.479" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
