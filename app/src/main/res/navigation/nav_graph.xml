@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/titleFragment">
 
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.jaguiler.reversi.ui.main.TitleFragment"
+        android:label="title_fragment"
+        tools:layout="@layout/title_fragment" >
+        <action
+            android:id="@+id/action_titleFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_configFragment"
+            app:destination="@id/configFragment" />
+        <argument
+            android:name="settings"
+            app:argType="boolean[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.jaguiler.reversi.ui.main.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.jaguiler.reversi.ui.main.ConfigFragment"
+        android:label="fragment_config"
+        tools:layout="@layout/fragment_config" >
+        <action
+            android:id="@+id/action_configFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.jaguiler.reversi.ui.main.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+        <argument
+            android:name="difficulty"
+            app:argType="integer[]" />
+        <argument
+            android:name="settings"
+            app:argType="boolean[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.jaguiler.reversi.ui.main.ResultsFragment"
+        android:label="fragment_results"
+        tools:layout="@layout/fragment_results" >
+        <action
+            android:id="@+id/action_resultsFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+        <argument
+            android:name="winner"
+            app:argType="boolean" />
+        <argument
+            android:name="moves"
+            app:argType="integer" />
+    </fragment>
 </navigation>

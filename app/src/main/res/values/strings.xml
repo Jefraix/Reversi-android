@@ -2,4 +2,15 @@
     <string name="app_name">Reversi</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start_buttontext">START</string>
+    <string name="settings_buttontext">SETTINGS</string>
+    <string name="boardsize_text">Board Size</string>
+    <string name="fourbyfourgrid_text">4 by 4 board</string>
+    <string name="eightbyeightboard_text">8 by 8 board</string>
+    <string name="playercolor_text">Player Color</string>
+    <string name="black_text">Black</string>
+    <string name="white_text">White</string>
+    <string name="reversi_text">REVERSI</string>
+    <string name="difficulty_text">SELECT DIFFICULTY</string>
+    <string name="results_text">GAME RESULTS</string>
 </resources>
