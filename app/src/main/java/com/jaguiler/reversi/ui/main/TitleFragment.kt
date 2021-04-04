@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.jaguiler.reversi.R
 import com.jaguiler.reversi.databinding.TitleFragmentBinding
@@ -15,7 +16,7 @@ class TitleFragment : Fragment() {
     private var _binding: TitleFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private var gameSettings = intArrayOf()
+    private var gameSettings = intArrayOf(1,1)
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -24,7 +25,9 @@ class TitleFragment : Fragment() {
         _binding = TitleFragmentBinding.inflate(inflater, container, false)
 
         binding.startButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_titleFragment_to_configFragment)
+            val actionEval =
+                    TitleFragmentDirections.actionTitleFragmentToConfigFragment(gameSettings)
+            Navigation.findNavController(it).navigate(actionEval)
         }
         binding.settingsButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_titleFragment_to_settingsFragment)

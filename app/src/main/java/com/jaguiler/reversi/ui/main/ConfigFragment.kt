@@ -23,6 +23,8 @@ class ConfigFragment : Fragment() {
     )
     private var difficultySetting = -1 // 1 = easy, 2 = normal, 3 = hard
 
+    private var gameSettings = intArrayOf(1,1)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,6 +39,12 @@ class ConfigFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.difficultyRecyclerView.apply {
             adapter = DifficultyAdapter(difficultyList)
+        }
+
+        arguments?.let { args ->
+            val safeArgs = ConfigFragmentArgs.fromBundle(args)
+            gameSettings[0] = safeArgs.gameSettings[0]
+            gameSettings[1] = safeArgs.gameSettings[0]
         }
     }
 
