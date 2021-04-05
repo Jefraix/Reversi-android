@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jaguiler.reversi.R
@@ -21,9 +22,9 @@ class ConfigFragment : Fragment() {
             Difficulty("Normal", 2),
             Difficulty("Hard", 3)
     )
-    private var difficultySetting = -1 // 1 = easy, 2 = normal, 3 = hard
+    private var difficultySetting = 1 // 1 = easy, 2 = normal, 3 = hard
 
-    private var gameSettings = intArrayOf(1,1)
+    private var gameSettings = intArrayOf(4,1)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +32,14 @@ class ConfigFragment : Fragment() {
     ): View? {
         _binding = FragmentConfigBinding.inflate(inflater, container, false)
         binding.difficultyRecyclerView.layoutManager = LinearLayoutManager(context)
+
+        binding.selecteddiffTextView.text = difficultyList[0].text
+
+        binding.startgameButton.setOnClickListener {
+            val actionEval =
+                    ConfigFragmentDirections.actionConfigFragmentToGameFragment(gameSettings,difficultySetting)
+            Navigation.findNavController(it).navigate(actionEval)
+        }
 
         return binding.root
     }
@@ -44,7 +53,7 @@ class ConfigFragment : Fragment() {
         arguments?.let { args ->
             val safeArgs = ConfigFragmentArgs.fromBundle(args)
             gameSettings[0] = safeArgs.gameSettings[0]
-            gameSettings[1] = safeArgs.gameSettings[0]
+            gameSettings[1] = safeArgs.gameSettings[1]
         }
     }
 
@@ -67,11 +76,12 @@ class ConfigFragment : Fragment() {
 
         override fun onClick(v: View?) {
             difficultySetting = difficulty.index
+            binding.selecteddiffTextView.text = difficulty.text
         }
 
         fun bind(diff: Difficulty) {
             this.difficulty = diff
-            diffTextView.text = diff.toString()
+            diffTextView.text = diff.text
         }
 
     }

@@ -13,14 +13,21 @@
         <action
             android:id="@+id/action_titleFragment_to_settingsFragment"
             app:destination="@id/settingsFragment"
-            app:enterAnim="@anim/slide_out_up"
-            app:exitAnim="@anim/slide_in_down" />
+            app:enterAnim="@anim/slide_in_down"
+            app:exitAnim="@anim/slide_out_up" />
         <action
             android:id="@+id/action_titleFragment_to_configFragment"
-            app:destination="@id/configFragment" />
+            app:destination="@id/configFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
         <argument
-            android:name="settings"
-            app:argType="integer[]" />
+            android:name="boardsize"
+            app:argType="integer"
+            android:defaultValue="4" />
+        <argument
+            android:name="playercolor"
+            app:argType="integer"
+            android:defaultValue="1" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -30,8 +37,8 @@
         <action
             android:id="@+id/action_settingsFragment_to_titleFragment"
             app:destination="@id/titleFragment"
-            app:enterAnim="@anim/slide_out_down"
-            app:exitAnim="@anim/slide_in_up" />
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_down" />
     </fragment>
     <fragment
         android:id="@+id/configFragment"
@@ -41,7 +48,10 @@
         <action
             android:id="@+id/action_configFragment_to_gameFragment"
             app:destination="@id/gameFragment"
-            app:popUpToInclusive="false" />
+            app:popUpTo="@id/configFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
         <argument
             android:name="gameSettings"
             app:argType="integer[]" />
@@ -54,10 +64,13 @@
         <action
             android:id="@+id/action_gameFragment_to_resultsFragment"
             app:destination="@id/resultsFragment"
-            app:popUpToInclusive="false" />
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_down"
+            app:exitAnim="@anim/slide_out_up" />
         <argument
             android:name="settings"
-            app:argType="boolean[]" />
+            app:argType="integer[]" />
         <argument
             android:name="difficulty"
             app:argType="integer" />
@@ -69,7 +82,10 @@
         tools:layout="@layout/fragment_results" >
         <action
             android:id="@+id/action_resultsFragment_to_titleFragment"
-            app:destination="@id/titleFragment" />
+            app:destination="@id/titleFragment"
+            app:popUpTo="@id/titleFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
         <argument
             android:name="winner"
             app:argType="boolean" />

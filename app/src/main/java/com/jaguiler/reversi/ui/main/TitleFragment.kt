@@ -16,7 +16,7 @@ class TitleFragment : Fragment() {
     private var _binding: TitleFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private var gameSettings = intArrayOf(1,1)
+    private var gameSettings = intArrayOf(4,1)
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -42,8 +42,8 @@ class TitleFragment : Fragment() {
         arguments?.let { args ->
             val safeArgs = TitleFragmentArgs.fromBundle(args)
 
-            gameSettings[0] = safeArgs.settings[0] // Board Size
-            gameSettings[1] = safeArgs.settings[1] // Player piece color
+            gameSettings[0] = safeArgs.boardsize // Board Size
+            gameSettings[1] = safeArgs.playercolor // Player piece color
 
         }
     }

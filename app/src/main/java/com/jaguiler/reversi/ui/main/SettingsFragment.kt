@@ -14,9 +14,8 @@ class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
-    private var localSettings = intArrayOf(1,1)
-    private var boardsize = -1
-    private var playercolor = -1
+    private var boardsize = 4
+    private var playercolor = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,26 +26,28 @@ class SettingsFragment : Fragment() {
 
         binding.applysettingsButton.setOnClickListener {
             val actionEval =
-                SettingsFragmentDirections.actionSettingsFragmentToTitleFragment(localSettings)
+                SettingsFragmentDirections.actionSettingsFragmentToTitleFragment()
+            actionEval.boardsize = boardsize
+            actionEval.playercolor = playercolor
             Navigation.findNavController(it).navigate(actionEval)
         }
 
+        binding.boardsizeRadioGroup.check(binding.fourbyRadioButton.id)
         binding.boardsizeRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             boardsize = when(checkedId) {
                 R.id.fourby_radioButton -> 4
                 R.id.eightby_radioButon -> 8
                 else -> -1
             }
-            localSettings[0] = boardsize
         }
 
+        binding.playercolorRadioGroup.check(binding.blackRadioButton.id)
         binding.playercolorRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             playercolor = when(checkedId) {
-                R.id.white_radioButton -> 1
-                R.id.black_radioButton -> 2
+                R.id.white_radioButton -> 2
+                R.id.black_radioButton -> 1
                 else -> -1
             }
-            localSettings[1] = playercolor
         }
 
         return binding.root

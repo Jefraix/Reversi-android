@@ -9,14 +9,65 @@
     tools:context=".ui.main.GameFragment">
 
     <TextView
-        android:id="@+id/difficulty_textView"
+        android:id="@+id/game_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/game_text"
         android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/currdiff_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/currboardsize_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        tools:text="DIFFICULTY" />
+
+    <TextView
+        android:id="@+id/currboardsize_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="GAME" />
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        tools:text="BOARDSIZE" />
+
+    <TextView
+        android:id="@+id/currplayercolor_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currboardsize_textView"
+        app:layout_constraintVertical_bias="0.532"
+        tools:text="COLOR" />
+
+    <Button
+        android:id="@+id/showresults_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/showresults_text"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficulty_textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

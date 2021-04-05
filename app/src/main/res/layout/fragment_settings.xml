@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
+        android:text="@string/settings_buttontext"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="50sp"
@@ -65,7 +66,8 @@
             android:text="@string/fourbyfourgrid_text"
             android:textAlignment="textStart"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:buttonTint="@color/black"/>
 
         <RadioButton
             android:id="@+id/eightby_radioButon"
@@ -73,7 +75,8 @@
             android:layout_height="wrap_content"
             android:text="@string/eightbyeightboard_text"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:buttonTint="@color/black"/>
 
     </RadioGroup>
 
@@ -104,7 +107,8 @@
             android:layout_height="wrap_content"
             android:text="@string/black_text"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:buttonTint="@color/black"/>
 
         <RadioButton
             android:id="@+id/white_radioButton"
@@ -112,7 +116,8 @@
             android:layout_height="wrap_content"
             android:text="@string/white_text"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:buttonTint="@color/black"/>
 
     </RadioGroup>
 

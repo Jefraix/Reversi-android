@@ -15,4 +15,7 @@
     <string name="results_text">GAME RESULTS</string>
     <string name="applysettings_text">APPLY SETTINGS</string>
     <string name="newgame_text">START NEW GAME</string>
+    <string name="showresults_text">SHOW RESULTS</string>
+    <string name="startgame_text">START GAME</string>
+    <string name="game_text">GAME</string>
 </resources>
