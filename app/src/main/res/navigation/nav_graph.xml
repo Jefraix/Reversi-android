@@ -20,14 +20,6 @@
             app:destination="@id/configFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
-        <argument
-            android:name="boardsize"
-            app:argType="integer"
-            android:defaultValue="4" />
-        <argument
-            android:name="playercolor"
-            app:argType="integer"
-            android:defaultValue="1" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -52,9 +44,6 @@
             app:popUpToInclusive="true"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
-        <argument
-            android:name="gameSettings"
-            app:argType="integer[]" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -68,12 +57,6 @@
             app:popUpToInclusive="true"
             app:enterAnim="@anim/slide_in_down"
             app:exitAnim="@anim/slide_out_up" />
-        <argument
-            android:name="settings"
-            app:argType="integer[]" />
-        <argument
-            android:name="difficulty"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/resultsFragment"
@@ -86,11 +69,5 @@
             app:popUpTo="@id/titleFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_right" />
-        <argument
-            android:name="winner"
-            app:argType="boolean" />
-        <argument
-            android:name="moves"
-            app:argType="integer" />
     </fragment>
 </navigation>

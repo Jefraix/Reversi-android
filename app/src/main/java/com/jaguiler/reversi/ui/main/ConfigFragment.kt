@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jaguiler.reversi.R
 import com.jaguiler.reversi.databinding.FragmentConfigBinding
+import com.jaguiler.reversi.model.ReversiViewModel
 
 class ConfigFragment : Fragment() {
 
@@ -24,7 +27,9 @@ class ConfigFragment : Fragment() {
     )
     private var difficultySetting = 1 // 1 = easy, 2 = normal, 3 = hard
 
-    private var gameSettings = intArrayOf(4,1)
+   // private var gameSettings = intArrayOf(4,1)
+
+    private val sharedViewModel: ReversiViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,9 +41,13 @@ class ConfigFragment : Fragment() {
         binding.selecteddiffTextView.text = difficultyList[0].text
 
         binding.startgameButton.setOnClickListener {
+            /*
             val actionEval =
                     ConfigFragmentDirections.actionConfigFragmentToGameFragment(gameSettings,difficultySetting)
             Navigation.findNavController(it).navigate(actionEval)
+             */
+            sharedViewModel.setDifficulty(difficultySetting)
+            it.findNavController().navigate(R.id.action_configFragment_to_gameFragment)
         }
 
         return binding.root
@@ -50,11 +59,13 @@ class ConfigFragment : Fragment() {
             adapter = DifficultyAdapter(difficultyList)
         }
 
+        /*
         arguments?.let { args ->
             val safeArgs = ConfigFragmentArgs.fromBundle(args)
             gameSettings[0] = safeArgs.gameSettings[0]
             gameSettings[1] = safeArgs.gameSettings[1]
         }
+        */
     }
 
     /**
