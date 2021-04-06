@@ -1,12 +1,10 @@
 <resources>
     <string name="app_name">Reversi</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="start_buttontext">START</string>
     <string name="settings_buttontext">SETTINGS</string>
-    <string name="boardsize_text">Board Size</string>
-    <string name="fourbyfourgrid_text">4 by 4 board</string>
-    <string name="eightbyeightboard_text">8 by 8 board</string>
+    <string name="boardsize_text">Board Color</string>
+    <string name="fourbyfourgrid_text">Green</string>
+    <string name="eightbyeightboard_text">Brown</string>
     <string name="playercolor_text">Player Color</string>
     <string name="black_text">Black</string>
     <string name="white_text">White</string>
@@ -18,4 +16,7 @@
     <string name="showresults_text">SHOW RESULTS</string>
     <string name="startgame_text">START GAME</string>
     <string name="game_text">GAME</string>
+    <string name="cell_description_text">A cell</string>
+    <string name="gameover_text">GAME OVER</string>
+    <string name="nummoves_text">NUMBER OF MOVES</string>
 </resources>

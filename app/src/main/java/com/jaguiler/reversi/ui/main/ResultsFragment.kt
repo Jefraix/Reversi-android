@@ -35,22 +35,6 @@ class ResultsFragment : Fragment() {
         return binding.root
     }
 
-    /*
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        arguments?.let { args ->
-            val safeArgs = ResultsFragmentArgs.fromBundle(args)
-
-            winner = safeArgs.winner // Board Size
-            moves = safeArgs.moves // Player piece color
-        }
-
-        binding.winnerTextView.text = winner.toString()
-        binding.movesTextView.text = moves.toString()
-    }
-    */
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

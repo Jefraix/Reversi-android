@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.jaguiler.reversi.R
 import com.jaguiler.reversi.databinding.FragmentSettingsBinding
@@ -17,7 +16,7 @@ class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
-    private var boardsize = 4
+    private var boardcolor = 1
     private var playercolor = 1
 
     private val sharedViewModel: ReversiViewModel by activityViewModels()
@@ -30,24 +29,17 @@ class SettingsFragment : Fragment() {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
         binding.applysettingsButton.setOnClickListener {
-            /*
-            val actionEval =
-                SettingsFragmentDirections.actionSettingsFragmentToTitleFragment()
-            actionEval.boardsize = boardsize
-            actionEval.playercolor = playercolor
-            Navigation.findNavController(it).navigate(actionEval)
-             */
-            sharedViewModel.setBoardSize(boardsize)
+            sharedViewModel.setBoardColor(boardcolor)
             sharedViewModel.setPlayerColor(playercolor)
             sharedViewModel.setSettingsBool(1)
             it.findNavController().navigate(R.id.action_settingsFragment_to_titleFragment)
         }
 
-        binding.boardsizeRadioGroup.check(binding.fourbyRadioButton.id)
-        binding.boardsizeRadioGroup.setOnCheckedChangeListener { _, checkedId ->
-            boardsize = when(checkedId) {
-                R.id.fourby_radioButton -> 4
-                R.id.eightby_radioButon -> 8
+        binding.boardcolorRadioGroup.check(binding.greenRadioButton.id)
+        binding.boardcolorRadioGroup.setOnCheckedChangeListener { _, checkedId ->
+            boardcolor = when(checkedId) {
+                R.id.green_radioButton -> 1
+                R.id.brown_radioButon -> 2
                 else -> -1
             }
         }

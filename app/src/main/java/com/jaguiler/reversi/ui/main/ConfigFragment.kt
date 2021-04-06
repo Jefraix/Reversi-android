@@ -27,8 +27,6 @@ class ConfigFragment : Fragment() {
     )
     private var difficultySetting = 1 // 1 = easy, 2 = normal, 3 = hard
 
-   // private var gameSettings = intArrayOf(4,1)
-
     private val sharedViewModel: ReversiViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -41,11 +39,6 @@ class ConfigFragment : Fragment() {
         binding.selecteddiffTextView.text = difficultyList[0].text
 
         binding.startgameButton.setOnClickListener {
-            /*
-            val actionEval =
-                    ConfigFragmentDirections.actionConfigFragmentToGameFragment(gameSettings,difficultySetting)
-            Navigation.findNavController(it).navigate(actionEval)
-             */
             sharedViewModel.setDifficulty(difficultySetting)
             it.findNavController().navigate(R.id.action_configFragment_to_gameFragment)
         }
@@ -58,14 +51,6 @@ class ConfigFragment : Fragment() {
         binding.difficultyRecyclerView.apply {
             adapter = DifficultyAdapter(difficultyList)
         }
-
-        /*
-        arguments?.let { args ->
-            val safeArgs = ConfigFragmentArgs.fromBundle(args)
-            gameSettings[0] = safeArgs.gameSettings[0]
-            gameSettings[1] = safeArgs.gameSettings[1]
-        }
-        */
     }
 
     /**

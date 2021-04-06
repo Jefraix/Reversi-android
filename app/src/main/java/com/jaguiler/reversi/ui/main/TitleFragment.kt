@@ -18,8 +18,6 @@ class TitleFragment : Fragment() {
     private var _binding: TitleFragmentBinding? = null
     private val binding get() = _binding!!
 
-    //private var gameSettings = intArrayOf(4,1)
-
     private val sharedViewModel: ReversiViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -29,13 +27,8 @@ class TitleFragment : Fragment() {
         _binding = TitleFragmentBinding.inflate(inflater, container, false)
 
         binding.startButton.setOnClickListener {
-            /*
-            val actionEval =
-                    TitleFragmentDirections.actionTitleFragmentToConfigFragment(gameSettings)
-            Navigation.findNavController(it).navigate(actionEval)
-             */
             if(sharedViewModel.newSettings() == null) {
-                sharedViewModel.setBoardSize(4)
+                sharedViewModel.setBoardColor(1)
                 sharedViewModel.setPlayerColor(1)
                 sharedViewModel.setDifficulty(1)
             }
@@ -47,20 +40,6 @@ class TitleFragment : Fragment() {
 
         return binding.root
     }
-
-    /*
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        arguments?.let { args ->
-            val safeArgs = TitleFragmentArgs.fromBundle(args)
-
-            gameSettings[0] = safeArgs.boardsize // Board Size
-            gameSettings[1] = safeArgs.playercolor // Player piece color
-
-        }
-    }
-    */
 
     override fun onDestroy() {
         super.onDestroy()

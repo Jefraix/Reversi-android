@@ -5,69 +5,573 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEB3B"
+    android:background="#77FFF200"
     tools:context=".ui.main.GameFragment">
 
-    <TextView
-        android:id="@+id/game_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/game_text"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/gamesettings_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.10" />
 
-    <TextView
-        android:id="@+id/currdiff_textView"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/showresults_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/currboardsize_textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        tools:text="DIFFICULTY" />
-
-    <TextView
-        android:id="@+id/currboardsize_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        tools:text="BOARDSIZE" />
-
-    <TextView
-        android:id="@+id/currplayercolor_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currboardsize_textView"
-        app:layout_constraintVertical_bias="0.532"
-        tools:text="COLOR" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
 
     <Button
         android:id="@+id/showresults_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/showresults_text"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/difficulty_textView" />
+        app:layout_constraintTop_toTopOf="@+id/showresults_guideline" />
+
+    <GridLayout
+        android:id="@+id/board_gridLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/reversigameboard"
+        android:columnCount="8"
+        android:rowCount="8"
+        app:layout_constraintBottom_toTopOf="@+id/showresults_guideline"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gamesettings_guideline">
+
+
+        <ImageButton
+            android:id="@+id/cell_00"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_01"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_02"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_03"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_04"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_05"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_06"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_07"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_10"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_11"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_12"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_13"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_14"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_15"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_16"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_17"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_20"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_21"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_22"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_23"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_24"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_25"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_26"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_27"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_30"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_31"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_32"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_33"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_34"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_35"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_36"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_37"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_40"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_41"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_42"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_43"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_44"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_45"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_46"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_47"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_50"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_51"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_52"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_53"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_54"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_55"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_56"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_57"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_60"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_61"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_62"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_63"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_64"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_65"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_66"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_67"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_70"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_71"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_72"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_73"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_74"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_75"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_76"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+        <ImageButton
+            android:id="@+id/cell_77"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cell_description_text" />
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/gameover_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:text="@string/gameover_text"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/showresults_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gamesettings_guideline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Reversi</string>
+    <string name="start_buttontext">INICIO</string>
+    <string name="settings_buttontext">CONFIGURACION</string>
+    <string name="boardsize_text">Color de Tabla</string>
+    <string name="fourbyfourgrid_text">Verde</string>
+    <string name="eightbyeightboard_text">Marron</string>
+    <string name="playercolor_text">Color de Jugador</string>
+    <string name="black_text">Negro</string>
+    <string name="white_text">Blanco</string>
+    <string name="reversi_text">REVERSI</string>
+    <string name="difficulty_text">SELECCIONAR DIFFICULTAD</string>
+    <string name="results_text">RESULTADOS</string>
+    <string name="applysettings_text">APPLICAR</string>
+    <string name="newgame_text">EMPEZAR NUEVO JUEGO</string>
+    <string name="showresults_text">MOSTRAR RESULTADOS</string>
+    <string name="startgame_text">EMPEZAR</string>
+    <string name="game_text">JUEGO</string>
+    <string name="cell_description_text">Un cell</string>
+    <string name="gameover_text">JUEGO TERMINADO</string>
+</resources>

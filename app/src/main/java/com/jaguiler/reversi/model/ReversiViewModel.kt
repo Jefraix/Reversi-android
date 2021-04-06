@@ -1,35 +1,46 @@
 package com.jaguiler.reversi.model
 
+import android.widget.ImageButton
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.jaguiler.reversi.R
+import com.jaguiler.reversi.databinding.FragmentGameBinding
 
-class ReversiViewModel : ViewModel() {
-    private var _board_size = MutableLiveData<Int>()
-    var board_size: LiveData<Int> = _board_size
+class ReversiViewModel() : ViewModel() {
+    private lateinit var reversiGame: Reversi
+    private val _liveReversiGame = MutableLiveData<Reversi>()
+    var liveReversiGame: LiveData<Reversi> = _liveReversiGame
 
-    private var _player_color = MutableLiveData<Int>()
-    var player_color: LiveData<Int> = _player_color
+    private var _boardcolor = MutableLiveData<Int>()
+    private var boardcolor: LiveData<Int> = _boardcolor
+
+    private var _playercolor = MutableLiveData<Int>()
+    private var playercolor: LiveData<Int> = _playercolor
 
     private var _difficulty = MutableLiveData<Int>()
-    var difficulty: LiveData<Int> = _difficulty
+    private var difficulty: LiveData<Int> = _difficulty
 
-    private var _winner = MutableLiveData<Boolean>()
-    var winner: LiveData<Boolean> = _winner
+    private var _winner = MutableLiveData<String>()
+    private var winner: LiveData<String> = _winner
 
     private var _moves = MutableLiveData<Int>()
-    var moves: LiveData<Int> = _moves
+    private var moves: LiveData<Int> = _moves
 
     private var _set = MutableLiveData<Int>()
     var set: LiveData<Int> = _set
 
+    fun setupReversiGame() {
+        reversiGame = Reversi(difficulty.value!!)
+        _liveReversiGame.value = reversiGame
+    }
 
-    fun setBoardSize(bs: Int) {
-        _board_size.value = bs
+    fun setBoardColor(bs: Int) {
+        _boardcolor.value = bs
     }
 
     fun setPlayerColor(pc: Int) {
-        _player_color.value = pc
+        _playercolor.value = pc
     }
 
     fun setDifficulty(d: Int) {
@@ -40,7 +51,7 @@ class ReversiViewModel : ViewModel() {
         _set.value = s
     }
 
-    fun setWinner(w: Boolean) {
+    fun setWinner(w: String) {
         _winner.value = w
     }
 
@@ -48,9 +59,13 @@ class ReversiViewModel : ViewModel() {
         _moves.value = m
     }
 
-    fun getBoardSize() = board_size.value
+    fun getGame() = liveReversiGame.value
 
-    fun getPlayerColor() = player_color.value
+    fun getPosSymbol(x: Int, y: Int) = reversiGame.grid[x][y]
+
+    fun getBoardColor() = boardcolor.value
+
+    fun getPlayerColor() = playercolor.value
 
     fun getDiff() = difficulty.value
 
@@ -59,4 +74,5 @@ class ReversiViewModel : ViewModel() {
     fun getNumMoves() = moves.value
 
     fun newSettings() = set.value
+
 }

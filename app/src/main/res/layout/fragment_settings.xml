@@ -39,7 +39,7 @@
         app:layout_constraintGuide_percent="0.60" />
 
     <TextView
-        android:id="@+id/boardsize_textView"
+        android:id="@+id/boardcolor_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/boardsize_text"
@@ -51,16 +51,16 @@
         app:layout_constraintTop_toTopOf="@+id/settings_guideline" />
 
     <RadioGroup
-        android:id="@+id/boardsize_radioGroup"
+        android:id="@+id/boardcolor_radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/boardsize_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boardsize_textView">
+        app:layout_constraintTop_toBottomOf="@+id/boardcolor_textView">
 
         <RadioButton
-            android:id="@+id/fourby_radioButton"
+            android:id="@+id/green_radioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fourbyfourgrid_text"
@@ -70,7 +70,7 @@
             android:buttonTint="@color/black"/>
 
         <RadioButton
-            android:id="@+id/eightby_radioButon"
+            android:id="@+id/brown_radioButon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/eightbyeightboard_text"
